@@ -29,7 +29,7 @@ export const initialData = {
         scrollIndicatorText: "Scroll to explore"
     },
     hero: {
-        greeting: "Hi, I'm",
+        greeting: "Hi I'am",
         typingTexts: [
             "G.L.N.S.S. Saketh",
             "AI & ML Engineer",

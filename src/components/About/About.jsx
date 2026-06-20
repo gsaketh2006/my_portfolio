@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './About.css';
 import Description from './Description';
 import GithubContributionGrid from '../GithubContributionGrid';
@@ -8,12 +9,25 @@ const About = ({ data, settings }) => {
     if (!data) return null;
 
     return (
-        <section className="about-section" id="about">
+        <motion.section 
+            className="about-section" 
+            id="about"
+            initial={{ opacity: 0, y: 50, filter: 'blur(4px)' }}
+            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            viewport={{ once: true, amount: 0.08 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
             <div className="container" id="about-container">
-                <div className="section-header-wrap">
-                    <span className="section-label">// 01. about</span>
+                <motion.div 
+                    className="section-header-wrap"
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <span className="section-label">{"01. about"}</span>
                     <h2 className="section-title">{settings.sectionTitles?.about || "About Me"}</h2>
-                </div>
+                </motion.div>
 
                 <div className="about-grid-wrapper">
                     {/* Part 1: Description */}
@@ -40,7 +54,7 @@ const About = ({ data, settings }) => {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 };
 
